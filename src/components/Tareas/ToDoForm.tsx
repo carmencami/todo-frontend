@@ -5,6 +5,7 @@ import { toast } from "react-toastify";
 import { createTareas, getTarea, updateTarea } from "./tareasService";
 import { useNavigate, useParams } from "react-router-dom";
 import 'react-toastify/dist/ReactToastify.css'; 
+import './tareasItem.css';
 
 type InputChange = ChangeEvent<HTMLInputElement | HTMLTextAreaElement>;
 
@@ -108,11 +109,11 @@ const ToDoForm = () => {
                 ></textarea>
               </div>
               {params.id ? (
-                <button className="btn btn-info" type="submit">
+                <button className="btn btn-secondary" type="submit">
                   Actualiza tu tarea
                 </button>
               ) : (
-                <button className="btn btn-primary" type="submit">
+                <button className="btn btn-info" type="submit">
                   Crea tu tarea
                 </button>
               )}

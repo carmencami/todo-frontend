@@ -1,6 +1,7 @@
 import React from "react";
 import { Tarea } from "./tareas";
 import * as tareasService from './tareasService';
+import './tareasItem.css';
 
 import { useNavigate } from "react-router-dom";
 

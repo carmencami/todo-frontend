@@ -2,6 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import './index.css';
 
 import TodoList from "./components/Tareas/TodoList";
 import ToDoForm from "./components/Tareas/ToDoForm";

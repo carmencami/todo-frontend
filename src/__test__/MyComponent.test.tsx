@@ -1,4 +1,3 @@
-// jest.config.js
 module.exports = {
   // ...otras configuraciones de Jest...
   setupFilesAfterEnv: ['@testing-library/jest-dom'],
