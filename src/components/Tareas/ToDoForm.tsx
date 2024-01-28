@@ -4,12 +4,17 @@ import { Tarea } from "./tareas";
 import { toast } from "react-toastify";
 import { createTareas, getTarea, updateTarea } from "./tareasService";
 import { useNavigate, useParams } from "react-router-dom";
+import 'react-toastify/dist/ReactToastify.css'; 
 
 type InputChange = ChangeEvent<HTMLInputElement | HTMLTextAreaElement>;
 
 type Params = {
   id?: string;
 };
+
+// ... (importaciones y código previo)
+
+// ... (importaciones y código previo)
 
 const ToDoForm = () => {
   const navigate = useNavigate();
@@ -29,16 +34,32 @@ const ToDoForm = () => {
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
+    const toastOptions = {
+      autoClose: 2000, 
+      position: "bottom-right" as const, 
+    };
+
+    const toastStyle = {
+      background: "green",
+      color: "white",
+      fontSize: "14px",  
+    };
+
     if (!params.id) {
-      // Crear tarea
       await createTareas(tarea);
-      toast.success('Tarea creada exitosamente');
+      toast.success('Tarea creada exitosamente', {
+        ...toastOptions,
+        style: toastStyle,
+      });
       setTarea(initialState);
     } else {
       // Actualizar tarea
       await updateTarea(params.id, tarea);
-      toast.success('Tarea actualizada exitosamente');
-      navigate("/");  // Redirige a la lista de tareas después de actualizar
+      toast.success('Tarea actualizada exitosamente', {
+        ...toastOptions,
+        style: toastStyle,
+      });
+      navigate("/"); 
     }
   };
 
